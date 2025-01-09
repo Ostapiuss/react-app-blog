@@ -34,7 +34,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy to AWS S3
-        run: aws s3 sync build s3://invisio.blog --delete
+        run: aws s3 sync build/ s3://invisio.blog --delete --debug
         
               
   
