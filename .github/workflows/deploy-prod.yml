@@ -18,11 +18,15 @@ jobs:
           node-version: 20.x
 
       - name: Install
-        run: yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
 
       - name: Build
-        run: yarn build
-
+        run: |
+          npm i -g vite
+          tsc && vite build --mode production
+          
       - name: Deploy
       - uses: aws-actions/configure-aws-credentials@v1
         with:
